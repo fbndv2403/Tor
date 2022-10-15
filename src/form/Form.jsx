@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Form() {
   const [user, setUser] = useState("");
@@ -7,6 +7,8 @@ export default function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ user, password });
+    setUser("");
+    setPassword("");
   };
 
   const handleChangeUser = (e) => {
@@ -21,11 +23,11 @@ export default function Form() {
     <form onSubmit={handleSubmit}>
       <label>
         User:
-        <input type="text" onChange={handleChangeUser} />
+        <input type="text" onChange={handleChangeUser} value={user} autoFocus />
       </label>
       <label>
         Password:
-        <input type="text" onChange={handleChangePassword} />
+        <input type="text" onChange={handleChangePassword} value={password} />
       </label>
       <input type="submit" value="Enter" />
     </form>
