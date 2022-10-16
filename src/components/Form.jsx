@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function Form() {
   const [user, setUser] = useState("");
@@ -30,7 +29,7 @@ export default function Form() {
         Password:
         <input type="text" onChange={handleChangePassword} value={password} />
       </label>
-      <input type="submit" value="Enter" />
+      <input type="submit" disabled={!user || !password} value="Enter" />
     </form>
   );
 }
